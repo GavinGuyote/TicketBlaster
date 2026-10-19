@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bln5gn2421861" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://di3e1703vwhpg" path="res://art/blue_ship_thrust.png" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://dhy4nssy6hpue" path="res://bullet.tscn" id="3_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_onrkg")
@@ -109,6 +110,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=653145262]
 script = ExtResource("1_4flbx")
+bullet_scene = ExtResource("3_i3pqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1498976117]
 sprite_frames = SubResource("SpriteFrames_l1abw")
@@ -118,5 +120,8 @@ frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1049319303]
 shape = SubResource("CapsuleShape2D_l1abw")
+
+[node name="Bullet" parent="." unique_id=737163201 instance=ExtResource("3_i3pqv")]
+position = Vector2(111, 206)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
